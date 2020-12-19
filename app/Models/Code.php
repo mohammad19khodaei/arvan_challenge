@@ -10,4 +10,9 @@ class Code extends Model
     use HasFactory;
 
     protected $fillable = ['code', 'capacity'];
+
+    public function winners()
+    {
+        return $this->hasMany(Winner::class);
+    }
 }
