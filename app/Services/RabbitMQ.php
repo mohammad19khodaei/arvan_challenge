@@ -18,10 +18,10 @@ class RabbitMQ
     protected function setupChannel(): void
     {
         $connection = new AMQPStreamConnection(
-            '127.0.0.1',
-            5672,
-            'guest',
-            'guest'
+            config('rabbitmq.host'),
+            config('rabbitmq.port'),
+            config('rabbitmq.username'),
+            config('rabbitmq.password')
         );
         $this->channel = $connection->channel();
     }
