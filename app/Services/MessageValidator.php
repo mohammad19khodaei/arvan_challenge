@@ -31,13 +31,13 @@ class MessageValidator
         return $this;
     }
 
-    protected function isValidPhoneNumber(): bool
+    public function isValidPhoneNumber(): bool
     {
         if (empty($this->phone)) {
             return false;
         }
-
-        return preg_match('/^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$/', $this->phone);
+        
+        return preg_match('/^(0|\+98)?9(1[0-9]|9[0-2]|2[0-2]|0[1-5]|41|3[0,3,5-9])\d{7}$/', $this->phone);
     }
 
     protected function checkWinner()
