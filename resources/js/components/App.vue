@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #40C5BA">
-      <a class="navbar-brand" href="#">
+      <router-link class="nav-link" to="/">
         <img src="img/arvan.jpg" alt="" width="45" height="45">
-      </a>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -19,18 +19,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home </a>
+            <router-link class="nav-link" to="/code/add">Add</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <router-link class="nav-link" to="/code/check">Check</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <router-link class="nav-link" to="/code/list">List</router-link>
           </li>
           
         </ul>
       </div>
     </nav>
+    <router-view></router-view>
   </div>
 </template>
 
