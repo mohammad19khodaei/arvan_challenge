@@ -12,7 +12,11 @@ class CodeController
     {
         Code::query()->create($request->validated());
 
-        Redis::set($request->code, $request->capacity);
+        // add 10 percent more capacity for possible fault
+        $capacity = $request->capacity;
+        $capacity = $capacity + ($capacity * 0.1);
+
+        Redis::set($request->code, $capacity);
 
         return response()->json([
             'message' => 'Code added successfully'
