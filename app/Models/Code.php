@@ -9,7 +9,7 @@ class Code extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code', 'capacity'];
+    protected $fillable = ['code', 'capacity', 'enable'];
 
     public function winners()
     {

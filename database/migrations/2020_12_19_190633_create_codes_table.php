@@ -17,7 +17,7 @@ class CreateCodesTable extends Migration
             $table->id();
             $table->string('code', 32)->unique();
             $table->integer('capacity')->default(0);
-            $table->integer('used')->default(0);
+            $table->boolean('enable')->default(true);
             $table->timestamps();
         });
     }
