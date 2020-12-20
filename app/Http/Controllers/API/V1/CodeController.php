@@ -14,7 +14,7 @@ class CodeController
 
         // add 10 percent more capacity for possible fault
         $capacity = $request->capacity;
-        $capacity = $capacity + ($capacity * 0.1);
+        $capacity = (int)ceil($capacity + ($capacity * 0.1));
 
         Redis::set($request->code, $capacity);
 
