@@ -24,7 +24,7 @@ class WinnerFactory extends Factory
     {
         $code = Code::factory()->create();
         return [
-            'phone' => $this->faker->phoneNumber,
+            'phone' => '0912111223'. mt_rand(1,9),
             'code_id' => $code->id,
             'code' => $code->code,
             'won_at' => now()->subDays(mt_rand(1,20))->getPreciseTimestamp(3)
