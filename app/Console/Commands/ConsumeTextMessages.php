@@ -41,6 +41,8 @@ class ConsumeTextMessages extends Command
     {
         (new RabbitMQ())->consume(function($msg) {
             echo $msg->body;
+            echo PHP_EOL;
+            $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
         });
     }
 }

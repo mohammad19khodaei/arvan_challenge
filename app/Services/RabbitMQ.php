@@ -33,7 +33,7 @@ class RabbitMQ
 
     public function consume($callback)
     {
-        $this->channel->basic_consume('text_messages', '', false, true, false, false, $callback);
+        $this->channel->basic_consume('text_messages', '', false, false, false, false, $callback);
   
         while ($this->channel->is_consuming()) {
             $this->channel->wait();
