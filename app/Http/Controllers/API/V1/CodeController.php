@@ -20,6 +20,6 @@ class CodeController
 
         return response()->json([
             'message' => 'Code added successfully'
-        ]);
+        ], 201);
     }
 }

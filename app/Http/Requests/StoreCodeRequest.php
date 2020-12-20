@@ -15,7 +15,7 @@ class StoreCodeRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => ['required', 'string', 'max:32', 'unique:codes,code'],
+            'code' => ['required', 'string', 'min:3', 'max:32', 'unique:codes,code'],
             'capacity' => ['required', 'int']
         ];
     }
