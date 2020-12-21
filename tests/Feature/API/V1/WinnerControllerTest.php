@@ -15,12 +15,12 @@ class WinnerControllerTest extends TestCase
     public function can_fetch_list_of_winners_with_pagination()
     {
         $winners = Winner::factory()->count(5)->create();
-        $winners = $winners->map(function ($winner) {
+        $winners = $winners->sortByDesc('won_at')->map(function ($winner) {
             $won_at = Carbon::createFromTimestamp((int)$winner->won_at/1000)->diffForHumans();
             $winner = $winner->only('id', 'phone', 'code');
             $winner['won_at'] = $won_at;
             return $winner;
-        })->toArray();        
+        })->values()->toArray();        
 
         $response = $this->json('get', route('winners.index'));
 
