@@ -8,9 +8,21 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import VueRouter from 'vue-router'
+import VueRouter from 'vue-router';
+import Toasted from 'vue-toasted';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+Vue.use(Toasted, {
+    duration: 5000,
+    position: 'top-center',
+    action: {
+        text: 'Okay',
+        onClick: (e, toastObject) => {
+            toastObject.goAway(0);
+        }
+    }
+});
+
 
 import addCode from './pages/AddCode';
 import checkCode from './pages/CheckCode';
@@ -18,8 +30,8 @@ import codeList from './pages/CodeList';
 import home from './pages/Home';
 
 const routes = [
-    { path: '/', component:  home},
-    { path: '/code/add', component:  addCode},
+    { path: '/', component: home },
+    { path: '/code/add', component: addCode },
     { path: '/code/check', component: checkCode },
     { path: '/code/list', component: codeList }
 ]

@@ -19,4 +19,16 @@ class StoreCodeRequest extends FormRequest
             'capacity' => ['required', 'int']
         ];
     }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'code' => strtolower($this->code),
+        ]);
+    }   
 }
