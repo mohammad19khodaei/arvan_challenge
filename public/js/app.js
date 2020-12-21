@@ -1946,14 +1946,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 var default_layout = "default";
-/* harmony default export */ __webpack_exports__["default"] = ({
-  computed: {},
-  data: function data() {
-    return {
-      message: "Hello World"
-    };
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -2044,6 +2037,113 @@ var default_layout = "default";
 
         _this.code.text = "";
         _this.code.capacity = "";
+      })["catch"](function (err) {
+        _this.validationError.exists = true;
+        _this.validationError.data = err.response.data.errors;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/CheckPhone.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/CheckPhone.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var default_layout = "default";
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: {},
+  data: function data() {
+    return {
+      phone: "",
+      result: {
+        status: "",
+        message: ""
+      },
+      validationError: {
+        data: {},
+        exists: false
+      }
+    };
+  },
+  mounted: function mounted() {
+    document.title = "Check Phone";
+  },
+  methods: {
+    checkPhone: function checkPhone() {
+      var _this = this;
+
+      this.result = {
+        status: "",
+        message: ""
+      };
+      this.validationError.exists = false;
+      this.validationError.data = {};
+      axios.get("/api/v1/check", {
+        params: {
+          phone: this.phone
+        }
+      }).then(function (res) {
+        _this.result = res.data;
+        _this.phone = "";
       })["catch"](function (err) {
         _this.validationError.exists = true;
         _this.validationError.data = err.response.data.errors;
@@ -6494,7 +6594,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.nav-item a[data-v-332fccf4] {\n  color: white!important;\n  font-size: 17px;\n}\n.nav-item a[data-v-332fccf4]:hover {\n  color: gray!important;\n}\n", ""]);
+exports.push([module.i, "\n.nav-item a[data-v-332fccf4] {\n  color: white !important;\n  font-size: 17px;\n}\n.nav-item a[data-v-332fccf4]:hover {\n  color: gray !important;\n}\n", ""]);
 
 // exports
 
@@ -38300,16 +38400,20 @@ var render = function() {
           staticStyle: { "background-color": "#40C5BA" }
         },
         [
-          _c("router-link", { staticClass: "nav-link", attrs: { to: "/" } }, [
-            _c("img", {
-              attrs: {
-                src: "img/arvan.jpg",
-                alt: "",
-                width: "45",
-                height: "45"
-              }
-            })
-          ]),
+          _c(
+            "router-link",
+            { staticClass: "nav-link", attrs: { to: { name: "home" } } },
+            [
+              _c("img", {
+                attrs: {
+                  src: "img/arvan.jpg",
+                  alt: "",
+                  width: "45",
+                  height: "45"
+                }
+              })
+            ]
+          ),
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
@@ -38327,7 +38431,10 @@ var render = function() {
                   [
                     _c(
                       "router-link",
-                      { staticClass: "nav-link", attrs: { to: "/code/add" } },
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "addCode" } }
+                      },
                       [_vm._v("Add")]
                     )
                   ],
@@ -38340,7 +38447,10 @@ var render = function() {
                   [
                     _c(
                       "router-link",
-                      { staticClass: "nav-link", attrs: { to: "/code/check" } },
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "phoneCheck" } }
+                      },
                       [_vm._v("Check")]
                     )
                   ],
@@ -38353,7 +38463,10 @@ var render = function() {
                   [
                     _c(
                       "router-link",
-                      { staticClass: "nav-link", attrs: { to: "/code/list" } },
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "winnerList" } }
+                      },
                       [_vm._v("List")]
                     )
                   ],
@@ -38517,10 +38630,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/CheckCode.vue?vue&type=template&id=44a5095c&":
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/CheckCode.vue?vue&type=template&id=44a5095c& ***!
-  \*******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/CheckPhone.vue?vue&type=template&id=58740c8f&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/CheckPhone.vue?vue&type=template&id=58740c8f& ***!
+  \********************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38532,16 +38645,106 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [_vm._v("Check Phone")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _vm.validationError.exists
+          ? _c("div", [
+              _c(
+                "ul",
+                { staticClass: "alert alert-danger" },
+                _vm._l(_vm.validationError.data, function(value, key) {
+                  return _c("li", { key: key }, [
+                    _vm._v("\n            " + _vm._s(value[0]) + "\n          ")
+                  ])
+                }),
+                0
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", [
+          _vm.result.status == "winner"
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-success",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._v(
+                    "\n          " + _vm._s(_vm.result.message) + "\n        "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.result.status == "loser"
+            ? _c(
+                "div",
+                { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+                [
+                  _vm._v(
+                    "\n          " + _vm._s(_vm.result.message) + "\n        "
+                  )
+                ]
+              )
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("form", [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "code" } }, [_vm._v("Phone Number")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.phone,
+                  expression: "phone"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "code",
+                placeholder: "Enter your phone number"
+              },
+              domProps: { value: _vm.phone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.phone = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn arvan_btn float-right",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.checkPhone($event)
+                }
+              }
+            },
+            [_vm._v("\n          Submit\n        ")]
+          )
+        ])
+      ])
+    ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("\n        Check Code\n    ")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -53875,7 +54078,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_toasted__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-toasted */ "./node_modules/vue-toasted/dist/vue-toasted.min.js");
 /* harmony import */ var vue_toasted__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_toasted__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _pages_AddCode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/AddCode */ "./resources/js/pages/AddCode.vue");
-/* harmony import */ var _pages_CheckCode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/CheckCode */ "./resources/js/pages/CheckCode.vue");
+/* harmony import */ var _pages_CheckPhone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/CheckPhone */ "./resources/js/pages/CheckPhone.vue");
 /* harmony import */ var _pages_CodeList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/CodeList */ "./resources/js/pages/CodeList.vue");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/pages/Home.vue");
 /**
@@ -53905,16 +54108,20 @@ Vue.use(vue_toasted__WEBPACK_IMPORTED_MODULE_1___default.a, {
 
 var routes = [{
   path: '/',
-  component: _pages_Home__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _pages_Home__WEBPACK_IMPORTED_MODULE_5__["default"],
+  name: 'home'
 }, {
   path: '/code/add',
-  component: _pages_AddCode__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _pages_AddCode__WEBPACK_IMPORTED_MODULE_2__["default"],
+  name: 'addCode'
 }, {
-  path: '/code/check',
-  component: _pages_CheckCode__WEBPACK_IMPORTED_MODULE_3__["default"]
+  path: '/phone/check',
+  component: _pages_CheckPhone__WEBPACK_IMPORTED_MODULE_3__["default"],
+  name: 'phoneCheck'
 }, {
-  path: '/code/list',
-  component: _pages_CodeList__WEBPACK_IMPORTED_MODULE_4__["default"]
+  path: '/winner/list',
+  component: _pages_CodeList__WEBPACK_IMPORTED_MODULE_4__["default"],
+  name: 'winnerList'
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes
@@ -54144,27 +54351,29 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/CheckCode.vue":
-/*!******************************************!*\
-  !*** ./resources/js/pages/CheckCode.vue ***!
-  \******************************************/
+/***/ "./resources/js/pages/CheckPhone.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/pages/CheckPhone.vue ***!
+  \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CheckCode_vue_vue_type_template_id_44a5095c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckCode.vue?vue&type=template&id=44a5095c& */ "./resources/js/pages/CheckCode.vue?vue&type=template&id=44a5095c&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _CheckPhone_vue_vue_type_template_id_58740c8f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckPhone.vue?vue&type=template&id=58740c8f& */ "./resources/js/pages/CheckPhone.vue?vue&type=template&id=58740c8f&");
+/* harmony import */ var _CheckPhone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckPhone.vue?vue&type=script&lang=js& */ "./resources/js/pages/CheckPhone.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
-  _CheckCode_vue_vue_type_template_id_44a5095c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CheckCode_vue_vue_type_template_id_44a5095c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CheckPhone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CheckPhone_vue_vue_type_template_id_58740c8f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CheckPhone_vue_vue_type_template_id_58740c8f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -54174,24 +54383,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/pages/CheckCode.vue"
+component.options.__file = "resources/js/pages/CheckPhone.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/pages/CheckCode.vue?vue&type=template&id=44a5095c&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/pages/CheckCode.vue?vue&type=template&id=44a5095c& ***!
-  \*************************************************************************/
+/***/ "./resources/js/pages/CheckPhone.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/pages/CheckPhone.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPhone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CheckPhone.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/CheckPhone.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPhone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/CheckPhone.vue?vue&type=template&id=58740c8f&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/pages/CheckPhone.vue?vue&type=template&id=58740c8f& ***!
+  \**************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckCode_vue_vue_type_template_id_44a5095c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CheckCode.vue?vue&type=template&id=44a5095c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/CheckCode.vue?vue&type=template&id=44a5095c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckCode_vue_vue_type_template_id_44a5095c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPhone_vue_vue_type_template_id_58740c8f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CheckPhone.vue?vue&type=template&id=58740c8f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/CheckPhone.vue?vue&type=template&id=58740c8f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPhone_vue_vue_type_template_id_58740c8f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckCode_vue_vue_type_template_id_44a5095c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckPhone_vue_vue_type_template_id_58740c8f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

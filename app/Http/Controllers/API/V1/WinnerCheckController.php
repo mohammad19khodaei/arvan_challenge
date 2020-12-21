@@ -11,13 +11,15 @@ class WinnerCheckController
     {
         $isWinner = Winner::query()->wherePhone($request->phone)->exists();
 
-        if($isWinner) {
+        if ($isWinner) {
             return response()->json([
+                'status' => 'winner',
                 'message' => 'Congratulation! You are a winner'
             ]);
         }
 
         return response()->json([
+            'status' => 'loser',
             'message' => 'Sorry! You are not a winner'
         ]);
     }
