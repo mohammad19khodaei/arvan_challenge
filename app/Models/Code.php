@@ -15,4 +15,16 @@ class Code extends Model
     {
         return $this->hasMany(Winner::class);
     }
+
+        
+    /**
+     * remove extra ( 10 percent ) extra winners
+     *
+     * @return void
+     */
+    public function removeExtraWinners(): void
+    {
+        $removedCount = $this->winners()->count() - $this->capacity;
+        $this->winners()->orderByDesc('won_at')->limit($removedCount)->delete();
+    }
 }

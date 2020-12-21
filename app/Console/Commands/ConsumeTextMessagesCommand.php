@@ -43,8 +43,6 @@ class ConsumeTextMessagesCommand extends Command
                 return;
             }
 
-            echo "winner";
-            echo PHP_EOL;
             $code = Code::query()->whereCode($codeText)->firstOrFail();
 
             if (!$code->enable) {
@@ -52,11 +50,10 @@ class ConsumeTextMessagesCommand extends Command
                 return;
             }
 
-            $timestamp = $parameters['timestamp'];
             $code->winners()->create([
                 'phone' => $phone,
                 'code' => $codeText,
-                'won_at' => $timestamp,
+                'won_at' => $parameters['timestamp'],
             ]);
 
             if ($validationResult->isLastWinner()) {
@@ -64,10 +61,8 @@ class ConsumeTextMessagesCommand extends Command
                     'enable' => false,
                 ]);
 
-                $removedCount = $code->winners()->count() - $code->capacity;
-                $code->winners()->orderByDesc('won_at')->limit($removedCount)->delete();
+                $code->removeExtraWinners();
             }
-
 
             $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
         });

@@ -31,16 +31,16 @@ class MessageValidator
         return $this;
     }
 
-    public function isValidPhoneNumber(): bool
+    protected function isValidPhoneNumber(): bool
     {
         if (empty($this->phone)) {
             return false;
         }
         
-        return preg_match('/^(0|\+98)?9(1[0-9]|9[0-2]|2[0-2]|0[1-5]|41|3[0,3,5-9])\d{7}$/', $this->phone);
+        return preg_match('/^(0|\+98)?9(1[0-9]|9[0-2]|2[0-2]|0[1-5]|41|3[0,3,5-9])\d{7}$/', $this->phone); // iran phone
     }
 
-    protected function checkWinner()
+    protected function checkWinner(): void
     {
         /**
          * status will be a number if current phone is a winner
