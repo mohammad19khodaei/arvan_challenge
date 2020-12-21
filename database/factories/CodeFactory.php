@@ -23,7 +23,7 @@ class CodeFactory extends Factory
     public function definition()
     {
         return [
-            'code' => Str::random(32),
+            'code' => strtolower(Str::random(32)),
             'capacity' => mt_rand(10, 100),
         ];
     }

@@ -22,7 +22,7 @@ class CodeControllerTest extends TestCase
             ->once()
             ->with(
                 $attributes['code'], 
-                ceil($attributes['capacity']  + ($attributes['capacity'] * 0.1))
+                (int)ceil($attributes['capacity']  + ($attributes['capacity'] * 0.1))
             );
 
         $response = $this->json('post', route('codes.store'), $attributes);
