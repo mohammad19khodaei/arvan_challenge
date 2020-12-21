@@ -57,7 +57,7 @@ class MessageValidator
             end
         
             return false
-        LUA, 2, $this->phone, $this->code);
+        LUA, 2, $this->phone, 'campaign:'.$this->code);
 
         if ($status !== false) {
             $this->isWinner = true;

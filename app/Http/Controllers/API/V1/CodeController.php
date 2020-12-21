@@ -16,7 +16,7 @@ class CodeController
         $capacity = $request->capacity;
         $capacity = (int)ceil($capacity + ($capacity * 0.1));
 
-        Redis::set($request->code, $capacity);
+        Redis::set('campaign:'.$request->code, $capacity);
 
         return response()->json([
             'message' => 'Code added successfully'
