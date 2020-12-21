@@ -38463,7 +38463,7 @@ var render = function() {
         "nav",
         {
           staticClass: "navbar navbar-expand-lg navbar-light",
-          staticStyle: { "background-color": "#40C5BA" }
+          staticStyle: { "background-color": "#00BAB9" }
         },
         [
           _c(
@@ -38472,7 +38472,7 @@ var render = function() {
             [
               _c("img", {
                 attrs: {
-                  src: "img/arvan.jpg",
+                  src: "img/r1_1.jpg",
                   alt: "",
                   width: "45",
                   height: "45"
@@ -38908,7 +38908,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("\n        Arvan\n    ")])])
+    return _c("div", [
+      _c("img", {
+        attrs: { src: "/img/r1_2.jpeg", alt: "arvan cloud", width: "100%" }
+      })
+    ])
   }
 ]
 render._withStripped = true

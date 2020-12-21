@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #40C5BA">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00BAB9">
       <router-link class="nav-link" :to="{ name: 'home'}">
-        <img src="img/arvan.jpg" alt="" width="45" height="45">
+        <img src="img/r1_1.jpg" alt="" width="45" height="45">
       </router-link>
       <button
         class="navbar-toggler"

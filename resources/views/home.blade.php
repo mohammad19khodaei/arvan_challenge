@@ -10,7 +10,7 @@
 
     <title>{{env('APP_NAME')}}</title>
 </head>
-<body style="background-color: #40C5BA">
+<body style="background-color: #00BAB9">
     <div id="app">
         <app></app>
     </div>
