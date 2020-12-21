@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="card">
+      <div class="card-header">Add New Code</div>
       <div class="card-body">
         <div v-if="validationError.exists">
           <ul class="alert alert-danger">
