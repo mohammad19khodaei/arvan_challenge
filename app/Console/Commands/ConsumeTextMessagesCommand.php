@@ -6,6 +6,7 @@ use App\Models\Code;
 use App\Services\MessageValidator;
 use App\Services\RabbitMQ;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Redis;
 
 class ConsumeTextMessagesCommand extends Command
 {
@@ -60,8 +61,10 @@ class ConsumeTextMessagesCommand extends Command
                 $code->update([
                     'enable' => false,
                 ]);
-
-                $code->removeExtraWinners();
+                // remove extra phones from db
+                $toBeDeletedPhones = $code->removeExtraWinners();
+                // remove extra phones from cache
+                $toBeDeletedPhones->each(fn($phone) => Redis::hdel('winners', $phone));
             }
 
             $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
