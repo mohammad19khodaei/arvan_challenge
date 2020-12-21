@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class WinnerResource extends JsonResource
 {
@@ -18,6 +19,7 @@ class WinnerResource extends JsonResource
             'id' => $this->id,
             'phone' => $this->phone,
             'code' => $this->code,
+            'won_at' => Carbon::createFromTimestamp((int)$this->won_at/1000)->diffForHumans()
         ];
     }
 }
