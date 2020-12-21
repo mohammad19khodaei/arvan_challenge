@@ -21,7 +21,7 @@ class CodeControllerTest extends TestCase
         Redis::shouldReceive('set')
             ->once()
             ->with(
-                $attributes['code'], 
+                'campaign:'.$attributes['code'],
                 (int)ceil($attributes['capacity']  + ($attributes['capacity'] * 0.1))
             );
 
