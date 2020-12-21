@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #40C5BA">
-      <router-link class="nav-link" to="/">
+      <router-link class="nav-link" :to="{ name: 'home'}">
         <img src="img/arvan.jpg" alt="" width="45" height="45">
       </router-link>
       <button
@@ -19,13 +19,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <router-link class="nav-link" to="/code/add">Add</router-link>
+            <router-link class="nav-link" :to="{name: 'addCode'}">Add</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/code/check">Check</router-link>
+            <router-link class="nav-link" :to="{name: 'phoneCheck'}">Check</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/code/list">List</router-link>
+            <router-link class="nav-link" :to="{name: 'winnerList'}">List</router-link>
           </li>
           
         </ul>
@@ -38,23 +38,16 @@
 <script>
 const default_layout = "default";
 
-export default {
-  computed: {},
-  data() {
-    return {
-      message: "Hello World",
-    };
-  },
-};
+export default {};
 </script>
 
 <style scoped>
-  .nav-item a {
-    color: white!important;
-    font-size: 17px;
-  }
+.nav-item a {
+  color: white !important;
+  font-size: 17px;
+}
 
-  .nav-item a:hover {
-    color: gray!important;
-  }
+.nav-item a:hover {
+  color: gray !important;
+}
 </style>

@@ -25,15 +25,15 @@ Vue.use(Toasted, {
 
 
 import addCode from './pages/AddCode';
-import checkCode from './pages/CheckCode';
+import checkPhone from './pages/CheckPhone';
 import codeList from './pages/CodeList';
 import home from './pages/Home';
 
 const routes = [
-    { path: '/', component: home },
-    { path: '/code/add', component: addCode },
-    { path: '/code/check', component: checkCode },
-    { path: '/code/list', component: codeList }
+    { path: '/', component: home, name: 'home' },
+    { path: '/code/add', component: addCode, name: 'addCode' },
+    { path: '/phone/check', component: checkPhone, name: 'phoneCheck' },
+    { path: '/winner/list', component: codeList, name: 'winnerList' }
 ]
 
 const router = new VueRouter({
