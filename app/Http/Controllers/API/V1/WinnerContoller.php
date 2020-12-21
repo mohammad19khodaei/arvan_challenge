@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Models\Winner;
+use App\Http\Resources\WinnerResource;
 
 class WinnerContoller
 {
     public function __invoke()
     {
-        $winners = Winner::query()->select('code', 'phone')->get();
-        return response()->json($winners);
+        return WinnerResource::collection(Winner::query()->paginate(request('per_page', 10)));
     }
 }

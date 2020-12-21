@@ -113,7 +113,7 @@ class CodeControllerTest extends TestCase
             'post',
             route('codes.store'),
             [
-                'code' => 'abc'
+                'code' => 'ab'
             ]
         );
         
