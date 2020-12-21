@@ -5,6 +5,7 @@ namespace Tests\Feature\API\V1;
 use Tests\TestCase;
 use App\Models\Winner;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 
 class WinnerControllerTest extends TestCase
 {
@@ -14,8 +15,12 @@ class WinnerControllerTest extends TestCase
     public function can_fetch_list_of_winners_with_pagination()
     {
         $winners = Winner::factory()->count(5)->create();
-        $winners = $winners->map(fn($winner) => $winner->only('id', 'phone', 'code'))->toArray();
-        
+        $winners = $winners->map(function ($winner) {
+            $won_at = Carbon::createFromTimestamp((int)$winner->won_at/1000)->diffForHumans();
+            $winner = $winner->only('id', 'phone', 'code');
+            $winner['won_at'] = $won_at;
+            return $winner;
+        })->toArray();        
 
         $response = $this->json('get', route('winners.index'));
 
@@ -37,7 +42,7 @@ class WinnerControllerTest extends TestCase
         Winner::factory()->count(15)->create();
 
         $response = $this->json(
-            'get', 
+            'get',
             route('winners.index'),
             [
                 'per_page' => 15
@@ -55,7 +60,7 @@ class WinnerControllerTest extends TestCase
         Winner::factory()->count(11)->create();
 
         $response = $this->json(
-            'get', 
+            'get',
             route('winners.index'),
             [
                 'per_page' => 10,
