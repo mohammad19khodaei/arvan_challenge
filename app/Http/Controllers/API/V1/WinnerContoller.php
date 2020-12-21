@@ -9,6 +9,6 @@ class WinnerContoller
 {
     public function __invoke()
     {
-        return WinnerResource::collection(Winner::query()->paginate(request('per_page', 10)));
+        return WinnerResource::collection(Winner::query()->orderBy('won_at', 'desc')->paginate(request('per_page', 10)));
     }
 }
