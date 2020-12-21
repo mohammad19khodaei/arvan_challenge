@@ -42,7 +42,7 @@
             class="btn arvan_btn float-right"
             @click.prevent="checkPhone"
           >
-            Submit
+            Check
           </button>
         </form>
       </div>
